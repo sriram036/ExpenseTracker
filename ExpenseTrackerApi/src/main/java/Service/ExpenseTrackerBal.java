@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 public class ExpenseTrackerBal {
-    private final String FILE_PATH = "src/main/resources/Json/expenses.json";
+    private final String FILE_PATH = "src/main/resources/templates/expenses.json";
     private final ObjectMapper mapper = new ObjectMapper();
 
     public List<Expense> getAllExpenses() throws IOException {

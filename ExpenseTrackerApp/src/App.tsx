@@ -37,7 +37,7 @@ function App() {
   const totalPages = Math.ceil(items.length / recordsPerPage);
 
   const fetchUsers = () => {
-    fetch("http://localhost:8080/api/getExpenses")
+    fetch("https://expensetracker-fuws.onrender.com/api/getExpenses")
       .then((res) => res.json())
       .then((data) => setItems(data));
   };
@@ -73,7 +73,7 @@ function App() {
     }
 
     
-    const response = await fetch("http://localhost:8080/api/addExpense", {
+    const response = await fetch("https://expensetracker-fuws.onrender.com/api/addExpense", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

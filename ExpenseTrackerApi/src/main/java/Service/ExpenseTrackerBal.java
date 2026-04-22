@@ -6,6 +6,7 @@ import tools.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
@@ -13,18 +14,15 @@ import java.util.Date;
 import java.util.List;
 
 public class ExpenseTrackerBal {
-    private final String FILE_PATH = "src/main/resources/Json/expenses.json";
+    private final String FILE_PATH = "/tmp/expenses.json";
     private final ObjectMapper mapper = new ObjectMapper();
 
     public List<Expense> getAllExpenses() throws IOException {
+
         File file = new File(FILE_PATH);
 
         if (!file.exists() || file.length() == 0) {
-            Expense Data = new Expense();
-            Data.setDescription("Empty");
-            List<Expense> list = new ArrayList<>();
-            list.add(Data);
-            return list;
+            return new ArrayList<>();
         }
 
         return mapper.readValue(file, new TypeReference<>() {

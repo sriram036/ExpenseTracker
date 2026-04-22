@@ -52,6 +52,17 @@ function App() {
       [name]: value,
     }));
   };
+  
+  const handleSelectChange = (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -99,7 +110,7 @@ function App() {
           <select
             name="category"
             value={formData.category}
-            onChange={handleChange}
+            onChange={handleSelectChange}
             className="input"
           >
             <option>Please Select</option>
